@@ -6,7 +6,6 @@ use yii\widgets\ActiveForm;
 use admin\modules\carousel\api\Slick;
 use admin\models\Setting;
 use admin\modules\block\api\Block;
-
 $this->title = $item->seo('title');
 $this->params['description'] = $item->seo('description');
 $this->params['keywords'] = $item->seo('keywords');

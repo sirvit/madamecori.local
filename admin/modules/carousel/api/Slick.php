@@ -4,6 +4,7 @@ namespace admin\modules\carousel\api;
 
 use yii\base\Widget;
 use yii\helpers\Json;
+use yii\helpers\VarDumper;
 use yii\web\View;
 use admin\modules\carousel\assets\SlickAsset;
 use admin\modules\carousel\assets\SlickLightboxAsset;
@@ -35,7 +36,6 @@ class Slick extends Widget {
         }
         $id = $this->containerId;
 
-
         $js[] = 'jQuery("#' . $id . '").slick(' . $options . ');';
 
         if ($this->lightbox) {
@@ -44,7 +44,10 @@ class Slick extends Widget {
             $layouts['closeButton'] = '<button type="button" class="slick-lightbox-close"><i class="fa fa-times"></i></button>';
             $options = Json::encode($this->clientOptions);
             $layouts = Json::encode($layouts);
-            $js[] = 'jQuery("#' . $id . '").slickLightbox({itemSelector: "> div > div > a",mainitem:"#mainitem",layouts:' . $layouts . ', slick:' . $options . '});';
+            if (isset($this->clientOptions['num'])){
+                $js[] = 'jQuery("#' . $id . '").slickLightbox({itemSelector: "> div > div > a",mainitem:"#mainitem'.$this->clientOptions['num'].'",layouts:' . $layouts . ', slick:' . $options . '});';
+            } else $js[] = 'jQuery("#' . $id . '").slickLightbox({itemSelector: "> div > div > a",mainitem:"#mainitem",layouts:' . $layouts . ', slick:' . $options . '});';
+
         }
         $js[] = 'jQuery("#' . $id . '").parent().css({"height":"auto"});';
 

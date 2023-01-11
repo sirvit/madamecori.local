@@ -35,7 +35,7 @@ $shopCart .= '</a>';
 <div class="bg-first1">
     <div class="container">
         <div class="row">
-            <div class="col-md-10">
+            <div class="col-md-6">
                 <ul class="nav nav-pills">
                     <li>
                         <a href="#" title="Телефон"><i class="fa fa-phone"></i> <strong><?= Setting::get('contact_telephone') ?></strong>
@@ -55,49 +55,29 @@ $shopCart .= '</a>';
                     </li>
                 </ul>
             </div>
-            <div class="col-md-2">
+            <div class="col-md-6">
                 <div class="pull-right">
-                    <ul class="nav nav-pills">
-                        <li><a rel="nofollow" href="http://vk.com"><i class="fab fa-vk"></i></a></li>
-                        <li><a rel="nofollow" href="http://twitter.com"><i class="fab fa-twitter"></i></a></li>
-                        <li><a rel="nofollow" href="http://facebook.com"><i class="fab fa-facebook"></i></a></li>
+                    <ul class="nav navbar-nav">
+                        <?
+                        if (Yii::$app->user->isGuest) {
+                            ?>
+                            <li><a href="<?= Url::to(['/user/registration']) ?>"><i class="fa fa-user"></i> <?= Yii::t('app', 'Регистрация') ?></a></li>
+                            <li><a href="<?= Url::to(['/user/login']) ?>"><i class="fa fa-lock"></i> <?= Yii::t('app', 'Вход') ?></a></li>
+                            <?
+                        } else {
+                            ?>
+                            <li><a href="<?= Url::to(['/shopcart/orders']) ?>"><i class="fa fa-list-ul"></i> <?= Yii::t('app', 'Мои заказы') ?></a></li>
+                            <li><a href="<?= Url::to(['/user/logout']) ?>"><i class="fa fa-lock"></i> <?= Yii::$app->user->identity->email ?> (<?= Yii::t('app', 'Выход') ?>)</a></li>
+                            <?
+                        }
+                        ?>
+                        <li><?= $shopCart ?></li>
                     </ul>
                 </div>
-            </div>
         </div>
     </div>
 </div>
-<div class="container">
-    <div class="row pt-15 pb-15">
-        <div class="col-md-6">
-            <div class="logo pull-left">
-                <a href="/" title="<?= Setting::get('contact_name') ?>">
-                    <img src="<?= $appAsset->baseUrl ?>/img/logo.png" class="img-responsive" alt="<?= Setting::get('contact_name') ?>">                    
-                </a>               
-            </div>                                        
-        </div>
-        <div class="col-md-6">
-            <div class="pull-right">
-                <ul class="nav navbar-nav">
-                    <?
-                    if (Yii::$app->user->isGuest) {
-                        ?>
-                        <li><a href="<?= Url::to(['/user/registration']) ?>"><i class="fa fa-user"></i> <?= Yii::t('app', 'Регистрация') ?></a></li>
-                        <li><a href="<?= Url::to(['/user/login']) ?>"><i class="fa fa-lock"></i> <?= Yii::t('app', 'Вход') ?></a></li>
-                        <?
-                    } else {
-                        ?>
-                        <li><a href="<?= Url::to(['/shopcart/orders']) ?>"><i class="fa fa-list-ul"></i> <?= Yii::t('app', 'Мои заказы') ?></a></li>
-                        <li><a href="<?= Url::to(['/user/logout']) ?>"><i class="fa fa-lock"></i> <?= Yii::$app->user->identity->email ?> (<?= Yii::t('app', 'Выход') ?>)</a></li>
-                        <?
-                    }
-                    ?>
-                    <li><?= $shopCart ?></li>
-                </ul>
-            </div>
-        </div>
-    </div>
-</div>
+
 <?
 NavBar::begin();
 $menuItems[] = ['label' => Yii::t('app', 'Главная'), 'url' => ['/']];
@@ -149,26 +129,26 @@ NavBar::end();
         <hr>
         <div class="col-md-4">            
             <div>
-                <?= Schema::localBusiness() ?>
+<!--                --><?php //= Schema::localBusiness() ?>
             </div>
         </div>   
         <div class="col-md-3"> 
-            <small><?= Yii::t('app', 'Прайс-лист в Excel') ?></small><br/>
-            <a class="btn btn-success" href="<?= File::get('price-list')->file ?>"><i class="fa fa-save"></i> <?= Yii::t('app', 'Скачать прайс-лист') ?></a>
+<!--            <small>--><?php //= Yii::t('app', 'Прайс-лист в Excel') ?><!--</small><br/>-->
+<!--            <a class="btn btn-success" href="--><?php //= File::get('price-list')->file ?><!--"><i class="fa fa-save"></i> --><?php //= Yii::t('app', 'Скачать прайс-лист') ?><!--</a>-->
         </div>        
         <div class="col-md-5 text-right">
-            <small><?= Yii::t('app', 'Подписаться на рассылку') ?>:</small><br/>
-            <?= Subscribe::form() ?>
+<!--            <small>--><?php //= Yii::t('app', 'Подписаться на рассылку') ?><!--:</small><br/>-->
+<!--            --><?php //= Subscribe::form() ?>
         </div>
     </div>
     <div class="container mb-60">
         <div class="col-md-4">
-            &copy; <?= Setting::get('contact_name') ?>, 2017 - <?= date('Y') ?>
+            &copy; <?= Setting::get('contact_name') ?>, 2023 - <?= date('Y') ?>
         </div>   
         <div class="col-md-3">             
         </div>        
         <div class="col-md-5 text-right">
-            <?php echo \admin\AdminModule::renderPromo() ?>
+            <?php //echo \admin\AdminModule::renderPromo() ?>
         </div>
     </div>
 </footer>

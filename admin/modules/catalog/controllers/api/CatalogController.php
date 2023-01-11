@@ -3,6 +3,7 @@
 namespace admin\modules\catalog\controllers\api;
 
 use Yii;
+use yii\helpers\VarDumper;
 use yii\web\NotFoundHttpException;
 use admin\modules\catalog\api\Catalog;
 use yii\data\Sort;
@@ -95,7 +96,6 @@ class CatalogController extends \admin\base\api\Controller {
     }
 
     public function actionItem($category, $slug) {
-
         $category = Catalog::category($category);
         if (!$category) {
             throw new NotFoundHttpException(Yii::t('admin/catalog', 'Элемент не найден.'));

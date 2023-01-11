@@ -14,7 +14,6 @@ $this->title = Yii::t('admin/catalog', 'Каталог');
 $module = $this->context->module->id;
 ?>
 <?= $this->render('_menu', ['category' => $model]) ?>
-
 <div class="row">
     <? $form = ActiveForm::begin(['method' => 'get', 'action' => Url::to(['/admin/catalog/item', 'id' => $category_id])]); ?>
     <div class="col-md-4">

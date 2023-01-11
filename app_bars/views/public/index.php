@@ -43,44 +43,6 @@ $category = Catalog::category();
                             }
                             echo '</ul></nav>';
                             ?>
-<!--                            <nav id="main-nav">-->
-<!--                            	<ul id="main-menu" class="sm sm-vertical sm-clean">-->
-<!--                                    <li>-->
-<!--                                        <a href="#">Home</a>-->
-<!--                                        <ul>-->
-<!--                                            <li><img src="/uploads/catalog/tovar3646_cdfd965c7f.jpg" width="48" height="48"><a href="#">Introduction to SmartMenus jQuery</a></li>-->
-<!--                                            <li><a href="#">Themes</a></li>-->
-<!--                                            <li><a href="#">The author</a></li>-->
-<!--                                            <li><a href="#">The company</a></li>-->
-<!--                                        </ul>-->
-<!--                                    </li>-->
-<!--                                    <li>-->
-<!--                                        <a href="#">About</a>-->
-<!--                                        <ul>-->
-<!--                                            <li><a href="#">About Vadikom</a></li>-->
-<!--                                            <li><a href="#">Projects</a></li>-->
-<!--                                            <li><a href="#">Services</a></li>-->
-<!--                                            <li><a href="#">Privacy policy</a></li>-->
-<!--                                        </ul>-->
-<!--                                    </li>-->
-<!--                                    <li><a href="#">Old SmartMenus versions</a></li>-->
-<!--                            	</ul>-->
-<!--                            </nav>-->
-                            <?php
-//                            echo Menu::widget(['items' => $category->menu(),
-//                                'options' => [
-//                                    'class' => 'list-unstyled',
-//
-//                                ],
-//                                'firstItemCssClass'=>'list-unstyled first',
-//                                'lastItemCssClass'=>'list-unstyled last',
-//                                'linkActiveTemplate' => '<div class="fs-16 mt-10 lh-16"><b><a href="{url}">{label}</a></b></div>',
-//                                'linkTemplate' => '<div class="fs-16 mt-10 lh-16"><img src="{ico}" width="48" height="48">&nbsp<a href="{url}">{label}</a></div>',
-////                                'linkTemplate' => '<div class="fs-16 mt-10 lh-16"><a href="{url}">{label}</a></div>',
-//                                'route' => ltrim(Yii::$app->request->pathInfo, '/')
-//                            ]);
-                            ?>
-
                         </div>
                     </div>
                 </div>
